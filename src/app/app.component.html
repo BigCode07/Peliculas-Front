@@ -1,15 +1,7 @@
 <h1>Datos de la Pelicula</h1>
-@for (pelicula of peliculas; track $index) {
-<div class="container-pelicula">
-  <div class="card" style="display: flex; flex-direction: row">
-    <div class="poster">
-      <img [src]="pelicula.poster" [alt]="pelicula.titulo" />
-    </div>
-    <div>
-      <p>{{ pelicula.titulo | uppercase }}</p>
-      <p>{{ pelicula.fechaLanzamiento | date : "dd-MMMM-YYYY" | uppercase }}</p>
-      <p>{{ pelicula.precio | currency }}</p>
-    </div>
-  </div>
-</div>
-}
+<router-outlet>
+  <h2>Peliculas en Cine</h2>
+  <app-listado-peliculas [peliculas]="peliculasCines" />
+  <h2>Peliculas a Estrenar</h2>
+  <app-listado-peliculas [peliculas]="peliculasProximosEstrenos" />
+</router-outlet>

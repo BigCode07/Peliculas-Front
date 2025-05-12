@@ -1,0 +1,24 @@
+@if (peliculas().length === 0) {
+<img
+  src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTQ5dHoxdmpoZjh5NzF0OGo2ZWl1cWN1bmFlMmoydmNiaWtheDV1bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/PkoBC2GlkLJ5yFIWtf/giphy.gif"
+/>
+}
+<!--  -->
+@else { @for (pelicula of peliculas(); track pelicula.id) {
+<div class="container-pelicula">
+  <div class="card" style="display: flex; flex-direction: row; gap: 10px">
+    <div class="poster">
+      <img
+        [src]="pelicula.poster"
+        [alt]="pelicula.titulo"
+        style="width: 140px; height: 220px"
+      />
+    </div>
+    <div>
+      <p>{{ pelicula.titulo | uppercase }}</p>
+      <p>{{ pelicula.fechaLanzamiento | date : "dd-MMMM-YYYY" | uppercase }}</p>
+      <p>{{ pelicula.precio | currency }}</p>
+    </div>
+  </div>
+</div>
+} }
