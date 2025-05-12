@@ -1,0 +1,16 @@
+.card {
+  border: 1px solid black;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  gap: 10px;
+}
+
+.poster {
+  display: flex;
+  flex-direction: row;
+}
+
+.poster img {
+  width: 169px;
+  height: 250px;
+}
