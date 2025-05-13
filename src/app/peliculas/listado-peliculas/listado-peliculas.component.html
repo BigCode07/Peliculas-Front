@@ -10,17 +10,21 @@
   <div class="card" style="display: flex; flex-direction: row; gap: 10px">
     <div class="poster">
       @if (!pelicula.poster) {
+
       <img
         src="https://jkfenner.com/wp-content/uploads/2019/11/default.jpg"
         alt="Imagen no existe"
         style="width: 140px; height: 220px"
       />
       }
+      <!--  -->
+      @else {
       <img
         [src]="pelicula.poster"
         [alt]="pelicula.titulo"
         style="width: 140px; height: 220px"
       />
+      }
     </div>
     <div>
       <p>{{ pelicula.titulo | uppercase }}</p>
