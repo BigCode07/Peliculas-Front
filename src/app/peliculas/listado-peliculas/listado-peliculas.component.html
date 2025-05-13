@@ -1,3 +1,4 @@
+<button (click)="agregarPelicula()">Agregar pelicula</button>
 @if (peliculas().length === 0) {
 <img
   src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTQ5dHoxdmpoZjh5NzF0OGo2ZWl1cWN1bmFlMmoydmNiaWtheDV1bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/PkoBC2GlkLJ5yFIWtf/giphy.gif"
@@ -8,6 +9,13 @@
 <div class="container-pelicula">
   <div class="card" style="display: flex; flex-direction: row; gap: 10px">
     <div class="poster">
+      @if (!pelicula.poster) {
+      <img
+        src="https://jkfenner.com/wp-content/uploads/2019/11/default.jpg"
+        alt="Imagen no existe"
+        style="width: 140px; height: 220px"
+      />
+      }
       <img
         [src]="pelicula.poster"
         [alt]="pelicula.titulo"
@@ -18,6 +26,7 @@
       <p>{{ pelicula.titulo | uppercase }}</p>
       <p>{{ pelicula.fechaLanzamiento | date : "dd-MMMM-YYYY" | uppercase }}</p>
       <p>{{ pelicula.precio | currency }}</p>
+      <button (click)="remover(pelicula)">Remover</button>
     </div>
   </div>
 </div>
